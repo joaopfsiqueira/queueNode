@@ -7,3 +7,15 @@ Lembrando que a config deve ser importada dentro do server.
 e no terminal node -> yarn add dotenv
 
 
+//BULL
+bull é outra biblioteca utilizada, trabalharemos com JOBS.
+o bull permite que seja administrado o envio de e-mail de uma forma mais especifica.
+dentro de jobs, será criado todo o tipo de e-mail. de Registro, de Cadastro Efetuado, de de=
+terminada tarefa, 
+
+
+//REDIS
+redis é o banco de dados utilizado para armazenar os jobs.
+
+//RUN ALL
+yann add npm-run-all -D serve para pode executar mais de um script ao mesmo tempo. 

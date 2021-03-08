@@ -1,4 +1,5 @@
-import Mail from '../lib/Mail';
+import Queue from '../lib/Queue'
+
 export default {
     async store(req, res) {
         const { name, email, password} = req.body;
@@ -11,14 +12,9 @@ export default {
             password,
         };
 
-        //ENVIAR UM E-MAIL
-        //o await serve para o envio de email funcionar para ai sim enviar a resposta.
-       await Mail.sendMail({
-            from: 'Queue Teste <queue@teste.com.br>',
-            to: `${name} <${email}>`,
-            subject: 'Cadastro de usuário',
-            html: `Olá, ${name}, bem vindo ao teste.`,
-        });
+        //ADICIONAR JOB REGISTRATION MAIL NA FILA.
+        await Queue.add('RegistrationMail',{ user });
+        await Queue.add('UserReport',{ user });
 
         return res.json(user);
     }
